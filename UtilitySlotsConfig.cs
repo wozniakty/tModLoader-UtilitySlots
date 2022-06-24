@@ -40,7 +40,7 @@ namespace UtilitySlots {
         public override void OnChanged() {
             /*if(lastSlotLocation == AccessorySlotsUI.Location.Custom && SlotLocation != AccessorySlotsUI.Location.Custom) {
                 ShowCustomLocationPanel = false;
-            }*/
+            }
 
             if(UtilitySlots.WingUI != null)
             {
@@ -58,7 +58,7 @@ namespace UtilitySlots {
                 UtilitySlots.ShoeUI.Panel.CanDrag = false;
             }
 
-            /*if(ShowCustomLocationPanel) {
+            if(ShowCustomLocationPanel) {
                 SlotLocation = AccessorySlotsUI.Location.Custom;
             }
 

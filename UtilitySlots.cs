@@ -176,6 +176,42 @@ namespace UtilitySlots {
                         }
 
                         break;
+
+                    case "addmoditems":
+                        if (!(args[1] is string))
+                            return "Error: not a valid UtilityType";
+                        if (Enum.TryParse<UtilitySlotsPlayer.UtilityType>(args[1] as string, out var type)){
+                            if (args[2] is int)
+                            {
+                                var id = (int)args[2];
+                                switch (type)
+                                {
+                                    case UtilitySlotsPlayer.UtilityType.Wing:
+                                        return ItemClassification.AddModWing(id);
+                                    case UtilitySlotsPlayer.UtilityType.Balloon:
+                                        return ItemClassification.AddModJump(id);
+                                    case UtilitySlotsPlayer.UtilityType.Shoe:
+                                        return ItemClassification.AddModShoe(id);
+                                }
+                            } else if (args[2] is IEnumerable<int>)
+                            {
+                                IEnumerable<int> id = (IEnumerable<int>)args[2];
+                                switch (type)
+                                {
+                                    case UtilitySlotsPlayer.UtilityType.Wing:
+                                        return ItemClassification.AddModWings(id);
+                                    case UtilitySlotsPlayer.UtilityType.Balloon:
+                                        return ItemClassification.AddModJumps(id);
+                                    case UtilitySlotsPlayer.UtilityType.Shoe:
+                                        return ItemClassification.AddModShoes(id);
+                                }
+                            }
+                            else
+                            {
+                                return "Error: not a valid Id or set of Ids (int or IEnumerable<int>)";
+                            }
+                        }
+                        return "Error: not a valid UtilityType";
                     default:
                         return "Error: not a valid command";
                 }

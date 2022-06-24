@@ -89,6 +89,8 @@ namespace UtilitySlots.UI {
             SocialSlot.ItemChanged += ItemChanged;
             DyeSlot.ItemChanged += ItemChanged;
             EquipSlot.ItemVisibilityChanged += ItemVisibilityChanged;
+            Panel.Visible = false;
+            Panel.CanDrag = false;
         }
 
         protected override Vector2 CalculatePosition() {
